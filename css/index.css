@@ -1,0 +1,23 @@
+.othello_board{
+    width:500px;
+    height:500px;
+}
+.othello_board div{
+  width:48px;
+  float:right;
+}
+.othello_board div div{
+  border:1px solid #d1d8de;
+  height:48px;
+  width:48px;
+}
+.othello_board div div span{
+  position:relative;
+  top:30%;
+  margin-left:40%;
+  font-size:20px;
+  font-weight:bold;
+}
+.outside{
+  background-color:#d1d8de;
+}
