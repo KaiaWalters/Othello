@@ -1,0 +1,22 @@
+{
+  "name": "othello",
+  "version": "1.0.0",
+  "description": "Othello, one of my favorite board games.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KaiaWalters/Othello.git"
+  },
+  "author": "Kaia Walters, Stefan Powell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KaiaWalters/Othello/issues"
+  },
+  "homepage": "https://github.com/KaiaWalters/Othello#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
