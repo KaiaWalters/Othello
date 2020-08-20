@@ -18,6 +18,27 @@
   font-size:20px;
   font-weight:bold;
 }
+.othello_board div .inside span{
+  color:#000000;
+  background-color: #000000;
+  top: 20%;
+  padding-top: 10%;
+  border-radius: 50%;
+  margin-left: 15%;
+  margin-right: 15%;
+  box-shadow: 1px 4px 1px 0px #757070;
+  display: none;
+}
 .outside{
   background-color:#d1d8de;
+}
+.inside{
+  background-color:#f0f3f5;
+}
+button{
+  border:1px solid transparent;
+  background-color: #173d9a;
+  color:#FFFFFF;
+  padding: 10px;
+  border-radius: 10%;
 }
