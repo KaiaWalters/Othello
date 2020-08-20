@@ -1,9 +1,12 @@
 
-
-document.querySelectorAll('board.section').forEach(item => {
+document.querySelectorAll('section').forEach(item => {
     item.addEventListener('click', event => {
       console.log("will turn green")
     })
+  })
+
+  document.querySelector('.outside').addEventListener('click', event => {
+    console.log("HELLO")
   })
 
 
