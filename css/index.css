@@ -42,3 +42,27 @@ button{
   padding: 10px;
   border-radius: 10%;
 }
+.name_taker{
+  border: 2px solid transparent;
+}
+input[type=text] {
+  border: 2px solid #d1d8de;
+  background-color: #d1d8de;
+  margin-left: 1%;
+  top:1%;
+  width:14.65%;
+}
+.game_log{
+  border:2px solid #d1d8de;
+  height:15%;
+  box-shadow: 6px 10px 10px 1px #757070;
+  overflow: hidden;
+}
+.game_log div{
+  border: 1px solid greysmoke;
+  width:99%;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 13px;
+  font-weight: lighter;
+  padding-left: 1%;
+}
