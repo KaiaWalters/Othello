@@ -3,6 +3,7 @@
   <link rel="stylesheet" type="text/css" href="css/index.css">
   <script src="js/start.js"></script>
 </head>
+<div class="screen">
   <div class="othello_board">
     <div>
       <div class="outside"><span></span></div>
@@ -125,5 +126,13 @@
       <div class="outside"><span></span></div>
     </div>
   </div>
-  <center><button onclick="start_game()">Start Game</button></center>
+  <div class="name_taker">
+    <input type="text" placeholder="Enter Player 1" id="first_player_input">
+    <input type="text" placeholder="Enter Player 2" id="second_player_input">
+  </div>
+</div>
+  <center><button onclick="start_game()" id="main_btn">Start Game</button></center>
+  <br/>
+<div class="game_log" id="logs">
+</div>
 </html>
