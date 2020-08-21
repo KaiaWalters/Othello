@@ -1,3 +1,5 @@
+cols = ["a", "b", "c", "d", "e", "f", "g", "h"];
+rows = [1, 2, 3, 4, 5, 6, 7, 8];
 //set starting four - two white [d4, e5] and two black [d5, e4]
 
 function begin(){
@@ -28,6 +30,22 @@ function log_data(text){
   current_logs = document.getElementById("logs").innerHTML;
   new_logs = text.concat(current_logs);
   document.getElementById("logs").innerHTML = new_logs;
+}
+
+function coordinates(event){
+  max = 500;
+  var x = event.clientX;
+  var y = event.clientY;
+  var coor = "X coords: " + x + ", Y coords: " + y;
+  if(x > (max/10) && x < (max)-(max/10) && y > (max/10) && y < (max)-(max/10)){
+    var point_min = 50;
+    var point_max = 450;
+    //get x coordinates
+    x_coord = Math.floor(cols.length - ((point_max - x) / point_min));
+    //get y coordinates
+    y_coord = Math.floor(cols.length - ((point_max - y) / point_min));
+    log_data("<div> > " + cols[x_coord] + rows[y_coord].toString() + "</div>")
+  }
 }
 
 function start_game(){

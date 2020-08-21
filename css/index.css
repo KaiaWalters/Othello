@@ -3,7 +3,7 @@
     height:500px;
 }
 .othello_board div{
-  width:48px;
+  width:50px;
   float:right;
 }
 .othello_board div div{
