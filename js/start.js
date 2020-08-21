@@ -30,6 +30,13 @@ function log_data(text){
   document.getElementById("logs").innerHTML = new_logs;
 }
 
+function coordinates(event){
+  var x = event.clientX;
+  var y = event.clientY;
+  var coor = "X coords: " + x + ", Y coords: " + y;
+  console.log(coor);
+}
+
 function start_game(){
   begin();
   var players = disableinputboxes();

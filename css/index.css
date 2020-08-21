@@ -1,9 +1,10 @@
 .othello_board{
     width:500px;
     height:500px;
+    border:1px solid red;
 }
 .othello_board div{
-  width:48px;
+  width:50px;
   float:right;
 }
 .othello_board div div{
