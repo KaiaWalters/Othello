@@ -21,3 +21,9 @@
 .outside{
   background-color:#d1d8de;
 }
+.playerOneToken{
+  background-color: blueviolet;
+}
+.playerTwoToken{
+  background-color: greenyellow;
+}
