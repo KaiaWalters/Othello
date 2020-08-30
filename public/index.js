@@ -102,12 +102,17 @@ function placePlayerToken() {
         buildPlayerToken(playerOneTokenColor, item.children[0])
         playerOneScore += 1
       }
-
+      updateScoreBoard()
       //item.classList.add(tokenToPlace)
       console.log("Current Score",playerOneScore, playerTwoScore)
     })
   })
 }
+
+function updateScoreBoard() {
+  document.getElementById("player1_score").innerHTML = `${playerOneScore}`
+  document.getElementById("player2_score").innerHTML = `${playerTwoScore}`
+};
 
 function determinePlayerTurn(turnCount) {
   if(turnCount % 2 == 0) {
