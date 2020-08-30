@@ -31,7 +31,6 @@ function disableinputboxes(playerOne, playerTwo){
   if( playerOne == "" || playerTwo == ""){
     return [];
   }else{
-   // console.log("player names:", player1, player2)
     return [playerOne, playerTwo];
   }
 }
@@ -42,8 +41,6 @@ function log_data(text){
   document.getElementById("logs").innerHTML = new_logs;
 }
 
-//** NOTE
-//S
 function coordinates(event){
   max = 500;
   var x = event.clientX;
@@ -66,10 +63,8 @@ function start_game(){
   var player2 = document.getElementById("second_player_input").value;
   players = disableinputboxes(player1, player2);
   if(players.length < 2){
-    //log tell them to add players names
     log_data("<div> > Player names cant be null</div>");
   }else{
-    //disable textboxes
     log_data("<div> > Start Game </div>");
     document.getElementById("first_player_input").disabled = true;
     log_data("<div> > Player 1 : " + players[0] + "</div>");
@@ -83,16 +78,16 @@ function start_game(){
   }
 }
 
-
-//HERE
 function placePlayerToken() {
   document.querySelectorAll('.inside').forEach(item => {
     item.addEventListener('click', event => {
       var tokenToPlace
+      if(item.children[0].style.display === "block"){
+        alert("You can not place a new token in an occupied cell.")
+        return
+      }
       turnCount += 1
-
       determinePlayerTurn(turnCount)
-
       console.log("FIRST","Turn Count:", turnCount, "Player Turn:", playerTurn,"Scores: ", playerOneScore, playerTwoScore)
 
       if(playerTurn == players[1]){
@@ -103,7 +98,6 @@ function placePlayerToken() {
         playerOneScore += 1
       }
       updateScoreBoard()
-      //item.classList.add(tokenToPlace)
       console.log("Current Score",playerOneScore, playerTwoScore)
     })
   })
@@ -120,70 +114,11 @@ function determinePlayerTurn(turnCount) {
   }else{
     playerTurn = players[0]
   }
-
   console.log("THIRD", "Player Turn", playerTurn)
 }
 
 function buildPlayerToken(color, element) {
-  //todo
-  console.log("inside build token",element)
-  
   element.style.backgroundColor = color;
   element.style.color = color;
   element.style.display = "block";
 }
-
-
-
-
-
-
-
-
-
-
-
-
-// //=========================== 
-
-// let playerOneScore = 2
-// let playerTwoScore = 2
-// let tokenToPlace 
-// //TODO add function to register players and switch off between rounds
-// let player = "playerTwo"
-
-// document.getElementsByClassName("othello_board").addEventListener('click', placePlayerToken())
-
-// function placePlayerToken(player) {
-//     document.querySelectorAll('.inside').forEach(item => {
-//       item.addEventListener('click', event => {
-//         console.log("second")
-//         checkPlayer(player)
-//         item.classList.add(tokenToPlace)
-//         console.log(playerOneScore, playerTwoScore)
-//       })
-//     })
-//   }
-
-//   function checkPlayer(currentPlayer) {
-//     currentPlayer = player
-
-//     if(player === "playerOne"){
-//       tokenToPlace = "playerOneToken"
-//       playerOneScore += 1
-
-//     }else if(player == "playerTwo"){
-//       tokenToPlace = "playerTwoToken"
-//       playerTwoScore += 1 
-//     }
-
-//   } 
-
-
-
-
-
-
-//user should be able to tap a cell and chage its color to their chosen color
-//whne the user taps an cell if they are the first user it will turn black otherwise it will turn green 
-//when the user taps a cell if they are black, this increases their count by one
