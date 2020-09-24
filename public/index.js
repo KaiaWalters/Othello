@@ -2,8 +2,8 @@ cols = ["a", "b", "c", "d", "e", "f", "g", "h"];
 rows = [1, 2, 3, 4, 5, 6, 7, 8];
 //set starting four - two white [d4, e5] and two black [d5, e4]
 
-//create file for static variables 
-var turnCount = 0 
+//create file for static variables
+var turnCount = 0
 var playerTurn;
 var playerOneScore = 0;
 var playerTwoScore = 0;
@@ -92,7 +92,7 @@ function placePlayerToken() {
 
       if(playerTurn == players[1]){
         buildPlayerToken(playerTwoTokenColor, item.children[0])
-        playerTwoScore += 1 
+        playerTwoScore += 1
       }else if(playerTurn == players[0]) {
         buildPlayerToken(playerOneTokenColor, item.children[0])
         playerOneScore += 1
@@ -121,4 +121,70 @@ function buildPlayerToken(color, element) {
   element.style.backgroundColor = color;
   element.style.color = color;
   element.style.display = "block";
+}
+
+function flipPlayer(element){
+  current_color = document.getElementById(element).style.color;
+  if(current_color == "white"){
+    document.getElementById(element).style.color = "black";
+    document.getElementById(element).style.backgroundColor = "black";
+  }
+  else{
+    document.getElementById(element).style.color = "white";
+    document.getElementById(element).style.backgroundColor = "white";
+  }
+}
+
+function horizantal_check(element){
+  min_value = 1;
+  max_value = 8;
+  element_color = document.getElementById(element).style.color;
+  y_value = parseInt(element[1]);
+  try{
+    for(x=(y_value+1); x<(max_value); x++){
+      checking_element = element[0].concat(x.toString());
+      if(document.getElementById(checking_element).style.color == element_color){
+        capture_between(0, element, checking_element, element_color);
+        break;
+      }
+    }
+    for(y=(y_value-1); y>(min_value); y--){
+      checking_element = element[0].concat(y.toString());
+      if(document.getElementById(checking_element).style.color == element_color){
+        capture_between(0, checking_element, element, element_color);
+        break;
+      }
+    }
+  }
+  catch(err){
+    console.log(err);
+  }
+}
+
+function vertical_check(){
+  //x values down
+    //find next location of similar color
+      //if any inbetween flip
+  //x values up
+    //find next location of similar color
+      //if any inbetween flip
+}
+
+function diagonal_check(){
+  //
+}
+
+function capture_between(type, starting_element, ending_element, element_color){
+  //0 - horizantal
+  //1 - vertical
+  //2 - diagonal
+  if(type == 0){
+    y_val = parseInt(starting_element[1]);
+    for(x=y_val; x<ending_element[1]; x++){
+      next_element = starting_element[0].concat(x.toString());
+      if(document.getElementById(next_element).style.color != "" && document.getElementById(next_element).style.color != element_color){
+        flipPlayer(next_element);
+      }
+    }
+  }
 }
