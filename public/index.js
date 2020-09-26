@@ -1,5 +1,7 @@
 cols = ["a", "b", "c", "d", "e", "f", "g", "h"];
 rows = [1, 2, 3, 4, 5, 6, 7, 8];
+min_value = 1;
+max_value = 8;
 //set starting four - two white [d4, e5] and two black [d5, e4]
 
 //create file for static variables
@@ -10,7 +12,6 @@ var playerTwoScore = 0;
 var players=[];
 var playerOneTokenColor = "black"
 var playerTwoTokenColor = "white"
-
 
 //S
 function begin(){
@@ -135,9 +136,7 @@ function flipPlayer(element){
   }
 }
 
-function horizantal_check(element){
-  min_value = 1;
-  max_value = 8;
+function vertical_check(element){
   element_color = document.getElementById(element).style.color;
   y_value = parseInt(element[1]);
   try{
@@ -161,27 +160,52 @@ function horizantal_check(element){
   }
 }
 
-function vertical_check(){
-  //x values down
-    //find next location of similar color
-      //if any inbetween flip
-  //x values up
-    //find next location of similar color
-      //if any inbetween flip
+function horizontal_check(element){
+  element_color = document.getElementById(element).style.color;
+  i = element[0]; //this is the letter
+  x_value = cols.indexOf(i);
+  try{
+    for(x=(x_value+1); x<(max_value); x++){
+      checking_element = cols[x].concat(element[1]);
+      if(document.getElementById(checking_element).style.color == element_color){
+        capture_between(1, element, checking_element, element_color);
+        break;
+      }
+    }
+    for(y=(x_value-1); y>(min_value); y--){
+      checking_element = cols[y].concat(element[1]);
+      if(document.getElementById(checking_element).style.color == element_color){
+        capture_between(1, checking_element, element, element_color);
+        break;
+      }
+    }
+  }
+  catch(err){
+    console.log(err);
+  }
 }
 
-function diagonal_check(){
+function diagonal_check(element){
   //
 }
 
 function capture_between(type, starting_element, ending_element, element_color){
-  //0 - horizantal
-  //1 - vertical
+  //0 - vertical
+  //1 - horizontal
   //2 - diagonal
   if(type == 0){
     y_val = parseInt(starting_element[1]);
     for(x=y_val; x<ending_element[1]; x++){
       next_element = starting_element[0].concat(x.toString());
+      if(document.getElementById(next_element).style.color != "" && document.getElementById(next_element).style.color != element_color){
+        flipPlayer(next_element);
+      }
+    }
+  }
+  if(type == 1){
+    x_value = cols.indexOf(starting_element[0]);
+    for(x=x_value; x < cols.indexOf(ending_element[0]); x++){
+      next_element = cols[x].concat(starting_element[1]);
       if(document.getElementById(next_element).style.color != "" && document.getElementById(next_element).style.color != element_color){
         flipPlayer(next_element);
       }
